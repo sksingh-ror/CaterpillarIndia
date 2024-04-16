@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: singh
+  password: singh@2024
+  host: localhost
+
+development:
+  <<: *default
+  database: caterpillar_india_development
+
+test:
+  <<: *default
+  database: caterpillar_india_test
+
+production:
+  <<: *default
+  database: caterpillar_india_production
+  username: caterpillar_india
+  password: <%= ENV["CATERPILLAR_INDIA_DATABASE_PASSWORD"] %>
